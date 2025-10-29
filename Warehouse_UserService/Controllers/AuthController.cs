@@ -174,6 +174,8 @@ namespace Warehouse_UserService.Controllers
             });
         }
 
+        // TODO: refresh auth token?
+
         [ProducesResponseType<string>(StatusCodes.Status200OK)]
         [ProducesResponseType<string>(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType<string>(StatusCodes.Status419AuthenticationTimeout)]
