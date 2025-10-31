@@ -42,6 +42,20 @@ namespace Warehouse_UserService
                     };
                 });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularApp", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod()
+                          .AllowCredentials();
+                    //policy.AllowAnyOrigin()
+                    //      .AllowAnyHeader()
+                    //      .AllowAnyMethod();
+                });
+            });
+
             var app = builder.Build();
 
             //app.MapPost("/login", (LoginRequest request, TokenGenerator tokenGenerator) =>
@@ -64,6 +78,8 @@ namespace Warehouse_UserService
                         .AddPreferredSecuritySchemes("Bearer");
                 });
             }
+
+            app.UseCors("AllowAngularApp");
 
             app.UseHttpsRedirection();
 

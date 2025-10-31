@@ -9,7 +9,6 @@ namespace Warehouse_UserService.Controllers
     [ApiController]
     public class UserController : Controller
     {
-        [Authorize]
         [HttpGet]
         public async Task<ActionResult<List<User>>> Get(int amount = 1)
         {
