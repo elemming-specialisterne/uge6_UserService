@@ -15,6 +15,8 @@ namespace Warehouse_UserService
 
             // Add services to the container.
 
+            builder.Services.AddHttpClient(); // <-- add this
+
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi(options =>
